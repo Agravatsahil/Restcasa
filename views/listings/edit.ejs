@@ -1,0 +1,198 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+  <main class="page-container create-page">
+    <section class="create-layout">
+      <div class="create-left">
+        <div class="create-left-panel">
+          <div class="create-left-content">
+            <span class="create-left-badge">Host with confidence</span>
+            <h2 class="create-left-title">Keep your listing up to date.</h2>
+            <p class="create-left-text">
+              Update details anytime so guests always see accurate photos,
+              pricing and location.
+            </p>
+          </div>
+
+          <div class="create-review-slider" id="review-slider">
+            <div class="review-card active">
+              <p class="review-text">
+                "Editing my listing is just as easy as creating it. Everything
+                stays consistent."
+              </p>
+              <div class="review-user">
+                <div class="review-avatar">HS</div>
+                <div>
+                  <div class="review-name">Harsh S.</div>
+                  <div class="review-role">Host in Pune</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <p class="review-text">
+                "I can adjust photos and pricing in seconds. The page feels
+                clean and modern."
+              </p>
+              <div class="review-user">
+                <div class="review-avatar">NK</div>
+                <div>
+                  <div class="review-name">Neha K.</div>
+                  <div class="review-role">Host in Jaipur</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <p class="review-text">
+                "Guests love that our listing is always accurate. Updating
+                details is hassle-free."
+              </p>
+              <div class="review-user">
+                <div class="review-avatar">RM</div>
+                <div>
+                  <div class="review-name">Rohit M.</div>
+                  <div class="review-role">Host in Bengaluru</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-dots">
+              <button class="review-dot active" data-index="0"></button>
+              <button class="review-dot" data-index="1"></button>
+              <button class="review-dot" data-index="2"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="create-right">
+        <div class="create-form-card">
+          <h2 class="create-form-title">Edit listing</h2>
+          <p class="create-form-subtitle">
+            Adjust any details of your property so your listing stays perfect.
+          </p>
+
+          <form
+            class="create-form"
+            action="/listings/<%= listing._id %>?_method=PATCH"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form-field">
+              <label for="title">Title</label>
+              <input
+                id="title"
+                type="text"
+                name="listing[title]"
+                value="<%= listing.title %>"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="description">Description</label>
+              <textarea
+                id="description"
+                name="listing[description]"
+                rows="3"
+                placeholder="Describe your place, highlights and amenities"
+              >
+<%= listing.description %></textarea
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="image" class="form-label">Upload New Image</label>
+
+              <div class="mb-2">
+                <p>Current Image:</p>
+                <img
+                  src="<%= listing.image.url %>"
+                  alt="listing_image"
+                  width="200"
+                  style="border-radius: 10px"
+                />
+              </div>
+
+              <input
+                id="image"
+                type="file"
+                name="listing[image]"
+                class="form-control"
+              />
+            </div>
+
+            <div class="form-field form-field-inline">
+              <div>
+                <label for="price">Price (per night)</label>
+                <input
+                  id="price"
+                  type="number"
+                  name="listing[price]"
+                  min="0"
+                  step="1"
+                  value="<%= listing.price %>"
+                />
+              </div>
+              <div>
+                <label for="location">Location (City)</label>
+                <input
+                  id="location"
+                  type="text"
+                  name="listing[location]"
+                  value="<%= listing.location %>"
+                />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="contry">Country</label>
+              <input
+                id="contry"
+                type="text"
+                name="listing[country]"
+                value="<%= listing.contry %>"
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary create-form-submit">
+              Update listing
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const cards = document.querySelectorAll(".review-card");
+      const dots = document.querySelectorAll(".review-dot");
+      if (!cards.length || !dots.length) return;
+
+      let index = 0;
+
+      function setActive(i) {
+        cards.forEach((card, idx) => {
+          card.classList.toggle("active", idx === i);
+        });
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle("active", idx === i);
+        });
+        index = i;
+      }
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const i = Number(dot.getAttribute("data-index"));
+          setActive(i);
+        });
+      });
+
+      setInterval(() => {
+        const next = (index + 1) % cards.length;
+        setActive(next);
+      }, 6000);
+    })();
+  </script>
+</body>

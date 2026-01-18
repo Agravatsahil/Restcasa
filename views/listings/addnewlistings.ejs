@@ -1,0 +1,161 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+  <main class="page-container create-page">
+    <section class="create-layout">
+      <div class="create-left">
+        <div class="create-left-panel">
+          <div class="create-left-content">
+            <span class="create-left-badge">Host with confidence</span>
+            <h2 class="create-left-title">Start your journey with RestCasa.</h2>
+            <p class="create-left-text">
+              List your property in minutes and welcome guests from all over the
+              world. Beautiful listings, secure bookings, and full control.
+            </p>
+          </div>
+
+          <div class="create-review-slider" id="review-slider">
+            <div class="review-card active">
+              <p class="review-text">
+                “RestCasa made it so easy to start hosting. My first booking
+                came in the same week!”
+              </p>
+              <div class="review-user">
+                <div class="review-avatar">AS</div>
+                <div>
+                  <div class="review-name">Aarav S.</div>
+                  <div class="review-role">Host in Mumbai</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <p class="review-text">
+                “Clean design and simple tools. Managing my beach house listing
+                is actually fun now.”
+              </p>
+              <div class="review-user">
+                <div class="review-avatar">RK</div>
+                <div>
+                  <div class="review-name">Riya K.</div>
+                  <div class="review-role">Host in Goa</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <p class="review-text">
+                “I love how guests can see all details clearly. Our occupancy
+                has never been better.”
+              </p>
+              <div class="review-user">
+                <div class="review-avatar">VP</div>
+                <div>
+                  <div class="review-name">Vikram P.</div>
+                  <div class="review-role">Host in Delhi</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-dots">
+              <button class="review-dot active" data-index="0"></button>
+              <button class="review-dot" data-index="1"></button>
+              <button class="review-dot" data-index="2"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="create-right">
+        <div class="create-form-card">
+          <h2 class="create-form-title">Create new listing</h2>
+          <p class="create-form-subtitle">
+            Add details about your property so guests can discover and book it.
+          </p>
+
+          <form
+            class="create-form"
+            action="/listings"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form-field">
+              <label for="title">Title</label>
+              <input id="title" type="text" name="title" required />
+            </div>
+
+            <div class="form-field">
+              <label for="description">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                rows="3"
+                placeholder="Describe your place, highlights and amenities"
+              ></textarea>
+            </div>
+
+            <div class="form-field">
+              <label for="image">Upload image</label>
+              <input
+                id="image"
+                type="file"
+                name="listing[image]"
+              />
+            </div>
+
+            <div class="form-field form-field-inline">
+              <div>
+                <label for="price">Price (per night)</label>
+                <input id="price" type="number" name="price" min="0" step="1" />
+              </div>
+              <div>
+                <label for="location">Location (City)</label>
+                <input id="location" type="text" name="location" />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="contry">Country</label>
+              <input id="contry" type="text" name="contry" />
+            </div>
+
+            <button type="submit" class="btn btn-primary create-form-submit">
+              Publish listing
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const cards = document.querySelectorAll(".review-card");
+      const dots = document.querySelectorAll(".review-dot");
+      if (!cards.length || !dots.length) return;
+
+      let index = 0;
+
+      function setActive(i) {
+        cards.forEach((card, idx) => {
+          card.classList.toggle("active", idx === i);
+        });
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle("active", idx === i);
+        });
+        index = i;
+      }
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const i = Number(dot.getAttribute("data-index"));
+          setActive(i);
+        });
+      });
+
+      setInterval(() => {
+        const next = (index + 1) % cards.length;
+        setActive(next);
+      }, 6000);
+    })();
+  </script>
+</body>

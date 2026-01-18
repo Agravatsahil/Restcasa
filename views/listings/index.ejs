@@ -1,0 +1,43 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+    <main class="page-container">
+        <section class="listing-section">
+        
+            <h1 class="page-title">All Listings</h1>
+
+            <div class="listing-grid">
+                <% for (const listing of allListings) { %>
+                    <article class="listing-card">
+                        <a href="/listings/<%= listing._id %>" class="listing-card-image-link">
+                            <img src="<%= listing.image.url %>" alt="<%= listing.title %>" class="listing-card-img" />
+                        </a>
+
+                        <div class="listing-card-body">
+                            <h2 class="listing-card-title"><%= listing.title %></h2>
+
+                            <% if (listing.description) { %>
+                                <p class="listing-card-subtitle"><%= listing.description %></p>
+                            <% } %>
+
+                            <div class="listing-card-meta">
+                                <div class="listing-card-price">
+                                    <span class="listing-card-price-label">from</span>
+                                    <span class="listing-card-price-value">₹<%= listing.price.toLocaleString('en-IN') %></span>
+                                </div>
+                                <div class="listing-card-location">
+                                    <span><%= listing.location %></span>
+                                    <% if (listing.contry) { %>
+                                        <span> · <%= listing.contry %></span>
+                                    <% } %>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        </section>
+        </main>
+    </main>
+</body>

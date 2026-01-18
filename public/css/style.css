@@ -1,0 +1,1024 @@
+body {
+	margin: 0;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	background-color: #ffffff;
+	padding-top: 88px; /* Add padding to account for fixed navbar */
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Fixed Typo: Added '.' */
+.main-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-inner {
+    width: min(1040px, 96%);
+    background-color: #ffffff;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+/* NEW: Adds space between Login/Signup links and the Button */
+.navbar-right {
+    gap: 24px; 
+}
+
+.navbar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.navbar-logo-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    width: 40px;
+    height: 40px;
+    display: block;
+}
+
+.nav-link {
+    font-size: 14px;
+    color: #555555;
+    font-weight: 500;
+    text-decoration: none; /* Keeps it clean */
+}
+
+.nav-link:hover {
+    color: #111111; /* Darken on hover */
+}
+
+.nav-link.active {
+    color: #111111;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    /* Your original padding is kept here */
+    padding: 20px 40px; 
+    border-radius: 999px;
+    background-image: linear-gradient(180deg, #0B66BF, #0E75DA);
+    color: #ffffff;
+    border: 1px solid #1468BA;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(11, 102, 191, 0.4);
+}
+/* --- Secondary Button (Login/Signup/Logout) --- */
+.btn-secondary {
+    padding: 12px 24px; /* Slightly smaller than your primary button */
+    border-radius: 999px;
+    background-color: #f3f4f6; /* Light grey background */
+    color: #333333;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent; /* Keeps layout stable on hover */
+}
+
+.btn-secondary:hover {
+    background-color: #e5e7eb; /* Darker grey on hover */
+    color: #000000;
+    transform: translateY(-1px); /* Little pop effect */
+}
+
+/* Optional: Make Logout red on hover to indicate "Exit" */
+a[href="/logout"]:hover {
+    background-color: #fee2e2; /* Light red */
+    color: #dc2626; /* Dark red text */
+}
+
+/* Ensure the navbar-right items are aligned correctly */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Space between the buttons */
+}
+
+
+/* listings grid */
+
+.page-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 32px 24px 64px;
+}
+
+.page-title {
+	font-size: 28px;
+	font-weight: 700;
+	margin: 0 0 24px;
+	color: #111827;
+}
+
+.listing-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 24px;
+}
+
+.listing-card {
+	background-color: #ffffff;
+	border-radius: 26px;
+	box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.listing-card-image-link {
+	display: block;
+}
+
+.listing-card-img {
+	width: 100%;
+	height: 220px;
+	object-fit: cover;
+	display: block;
+}
+
+.listing-card-body {
+	padding: 18px 20px 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.listing-card-title {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 700;
+	color: #111827;
+}
+
+.listing-card-subtitle {
+	margin: 0;
+	font-size: 14px;
+	color: #6b7280;
+}
+
+.listing-card-meta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 8px;
+	font-size: 13px;
+	color: #4b5563;
+}
+
+.listing-card-price-label {
+	margin-right: 4px;
+	color: #6b7280;
+}
+
+.listing-card-price-value {
+	font-weight: 700;
+}
+
+.listing-card-location span {
+	white-space: nowrap;
+}
+
+.listing-card-actions {
+	margin-top: 14px;
+}
+
+.listing-card-button {
+	width: 100%;
+	border-radius: 999px;
+	background: #111827;
+	color: #ffffff;
+	padding: 10px 16px;
+	box-shadow: 0 6px 16px rgba(15, 23, 42, 0.4);
+}
+
+.listing-card-button:hover {
+	filter: brightness(1.05);
+}
+
+.listing-detail {
+	padding-top: 24px;
+}
+
+.listing-detail-back {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	color: #4b5563;
+	margin-bottom: 16px;
+}
+
+.listing-detail-back:hover {
+	text-decoration: underline;
+}
+
+.listing-detail-layout {
+	display: flex;
+	gap: 28px;
+	background-color: #ffffff;
+	border-radius: 32px;
+	box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
+	padding: 24px;
+	border: 1px solid #e5e7eb;
+	align-items: stretch;
+}
+
+.listing-detail-media {
+	flex: 1.15;
+	display: flex;
+}
+
+.listing-detail-img {
+	width: 100%;
+	border-radius: 24px;
+	object-fit: cover;
+	max-height: 460px;
+}
+
+.listing-detail-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	
+}
+
+.listing-detail-title {
+	margin: 0;
+	font-size: 26px;
+	font-weight: 700;
+	color: #111827;
+}
+
+.listing-detail-location {
+	margin: 4px 0 0;
+	font-size: 14px;
+	color: #6b7280;
+}
+
+.listing-detail-description {
+	margin: 16px 0 0;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #4b5563;
+}
+
+.listing-detail-meta {
+	margin-top: 18px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px 20px;
+	font-size: 13px;
+	color: #4b5563;
+}
+
+.listing-detail-price-label {
+	display: block;
+	font-size: 12px;
+	color: #6b7280;
+}
+
+.listing-detail-price-value {
+	font-size: 20px;
+	font-weight: 700;
+	color: #111827;
+}
+
+.listing-detail-id code {
+	font-size: 12px;
+	padding: 3px 6px;
+	border-radius: 6px;
+	background-color: #f3f4f6;
+}
+
+.listing-detail-actions {
+	margin-top: 24px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.listing-detail-actions form {
+	margin: 0;
+}
+
+.listing-detail-edit {
+	padding: 12px 22px;
+	border-radius: 999px;
+	background-color: #111827;
+	color: #ffffff;
+}
+
+.listing-detail-edit:hover {
+	filter: brightness(1.05);
+}
+
+.listing-detail-delete {
+	padding: 12px 22px;
+	border-radius: 999px;
+	background-color: #ef4444;
+	color: #ffffff;
+	border: none;
+}
+
+.listing-detail-delete:hover {
+	filter: brightness(1.05);
+}
+
+@media (max-width: 900px) {
+	.listing-detail-layout {
+		flex-direction: column;
+		padding: 18px;
+	}
+
+	.listing-detail-media {
+		order: -1;
+	}
+}
+
+@media (max-width: 1200px) {
+	.listing-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 900px) {
+	.listing-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 580px) {
+	.listing-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* form  */
+ 
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+     
+/* create listing page */
+
+.create-page {
+	padding-top: 24px;
+}
+
+.create-layout {
+	display: flex;
+	gap: 0;
+	align-items: stretch;
+	background: #ffffff;
+	border-radius: 32px;
+	border: 1px solid #e5e7eb;
+	overflow: hidden;
+}
+
+.create-left,
+.create-right {
+	flex: 1;
+	display: flex;
+}
+
+.create-left-panel {
+	position: relative;
+	flex: 1;
+	border-radius: 32px 0 0 32px;
+	padding: 32px 30px 26px;
+	color: #ffffff;
+	background-image: url("/iamges/form-image.jpg");
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.create-left-panel::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		to top,
+		rgba(15, 23, 42, 0.9) 0%,
+		rgba(15, 23, 42, 0.7) 35%,
+		transparent 80%
+	);
+	pointer-events: none;
+}
+
+.create-left-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px 12px;
+	border-radius: 999px;
+	background: rgba(15, 23, 42, 0.16);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.create-left-title {
+	margin: 18px 0 8px;
+	font-size: 30px;
+	line-height: 1.18;
+	font-weight: 700;
+}
+
+.create-left-text {
+	margin: 0;
+	max-width: 320px;
+	font-size: 14px;
+	line-height: 1.5;
+	opacity: 0.92;
+}
+
+.create-left-content,
+.create-review-slider {
+	position: relative;
+	z-index: 1;
+}
+
+.create-review-slider {
+	margin-top: 36px;
+	max-width: 320px;
+	position: relative;
+}
+
+.review-card {
+	background: rgba(5, 18, 55, 0.92);
+	border-radius: 20px;
+	padding: 18px 18px 16px;
+	color: #e5ecff;
+	font-size: 13px;
+	line-height: 1.5;
+	display: none;
+}
+
+.review-card.active {
+	display: block;
+}
+
+.review-text {
+	margin: 0;
+}
+
+.review-user {
+	margin-top: 12px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.review-avatar {
+	width: 32px;
+	height: 32px;
+	border-radius: 999px;
+	background: #0b66bf;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.review-name {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.review-role {
+	font-size: 11px;
+	opacity: 0.8;
+}
+
+.review-dots {
+	margin-top: 10px;
+	display: flex;
+	gap: 6px;
+}
+
+.review-dot {
+	width: 7px;
+	height: 7px;
+	border-radius: 999px;
+	border: none;
+	padding: 0;
+	background: rgba(226, 232, 240, 0.4);
+	cursor: pointer;
+}
+
+.review-dot.active {
+	background: #ffffff;
+}
+
+.create-form-card {
+	flex: 1;
+	border-radius: 0 32px 32px 0;
+	background: #ffffff;
+	padding: 32px 32px 28px;
+	display: flex;
+	flex-direction: column;
+	max-width: 460px;
+	margin-left: auto;
+}
+
+.create-form-title {
+	margin: 0 0 6px;
+	font-size: 24px;
+	font-weight: 700;
+	color: #111827;
+}
+
+.create-form-subtitle {
+	margin: 0 0 20px;
+	font-size: 13px;
+	color: #6b7280;
+}
+
+.create-form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.form-field-inline {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px 16px;
+}
+
+.create-form label {
+	font-size: 13px;
+	font-weight: 600;
+	color: #111827;
+	margin-bottom: 0;
+}
+
+.create-form input,
+.create-form textarea {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 10px;
+	margin: 8px 0 15px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	background-color: #f9fafb;
+	font-size: 14px;
+	outline: none;
+}
+
+.create-form input:focus,
+.create-form textarea:focus {
+	border-color: #2563eb;
+	background-color: #ffffff;
+	box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.20);
+}
+
+.create-form textarea {
+	resize: vertical;
+	min-height: 96px;
+}
+
+.create-form-submit {
+	margin-top: 24px;
+	width: 100%;
+}
+
+@media (max-width: 960px) {
+	.create-layout {
+		flex-direction: column;
+	}
+
+	.create-left-panel {
+		border-radius: 24px 24px 0 0;
+	}
+
+	.create-form-card {
+		border-radius: 0 0 24px 24px;
+	}
+}
+
+/* footer */
+
+.site-footer {
+	margin-top: 80px;
+	padding: 40px 24px 50px;
+	 /* yellow border background similar to reference */
+}
+
+.footer-shell {
+	max-width: 1400px;
+	margin: 0 auto;
+	background: linear-gradient(180deg, #0b66bf 0%, #0e4fd4 60%, #0b3aa5 100%);
+	border-radius: 40px;
+	box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+	overflow: hidden;
+}
+
+.footer-inner {
+	position: relative;
+	min-height: 340px;
+	padding: 56px 64px 34px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.footer-links-row {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 80px;
+	margin-bottom: 48px;
+}
+
+.footer-col {
+	min-width: 120px;
+}
+
+.footer-col-title {
+	margin: 0 0 10px;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #ffd94a;
+}
+
+.footer-link {
+	display: block;
+	margin-bottom: 6px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #ffd94a;
+}
+
+.footer-link:hover {
+	text-decoration: underline;
+}
+
+.footer-wordmark {
+    position: absolute;
+    left: 50%;
+    bottom: -20px; /* Brought it up slightly to show more of the text */
+    transform: translateX(-50%);
+    font-size: clamp(110px, 28vw, 280px); /* Increased size */
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    background: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 20%,
+        rgba(255, 255, 255, 0.9) 60%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: none;
+    white-space: nowrap;
+    pointer-events: none;
+    line-height: 0.9; /* Better vertical alignment */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for better readability */
+}
+
+.footer-bottom {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 40px;
+	font-size: 12px;
+	color: #e5ecff;
+}
+
+.footer-bottom-links {
+	display: flex;
+	gap: 18px;
+}
+
+.footer-bottom-link {
+	font-weight: 500;
+	color: #e5ecff;
+}
+
+.footer-bottom-link:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+	.footer-inner {
+		padding: 32px 24px 24px;
+		min-height: 220px;
+	}
+
+	.footer-links-row {
+		justify-content: space-between;
+		gap: 32px;
+	}
+
+	.footer-bottom {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+}
+
+/* --- Card Container --- */
+.review-form-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px; /* Modern rounded corners */
+  padding: 32px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); /* Soft, lofty shadow */
+  max-width: 500px; /* Constrain width for better readability */
+  margin: 20px auto; /* Center on page */
+  font-family: 'Circular', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+.review-form-card h2 {
+  margin: 0 0 24px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #222222;
+}
+
+/* --- Typography --- */
+.section-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* --- Star Rating System (The Magic) --- */
+.starability-slot {
+  border: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: row-reverse; /* Reverses order so 5 is visually last */
+  justify-content: flex-end; /* Aligns stars to the left */
+  gap: 2px; /* Slight space between stars */
+}
+
+/* Hide actual radio inputs */
+.starability-slot > input {
+  display: none;
+}
+
+/* The Star Icons */
+.starability-slot > label {
+  color: #e6e6e6; /* Gray placeholder color */
+  cursor: pointer;
+  font-size: 32px; /* Large clickable area */
+  transition: color 0.2s ease-in-out, transform 0.1s;
+  line-height: 1;
+}
+
+/* Unicode Star Character */
+.starability-slot > label:before {
+  content: '★'; 
+}
+
+/* Hover & Checked State Colors */
+/* Logic: When you hover a star, select it AND all stars 'after' it (visually to the left) */
+.starability-slot > input:checked ~ label,
+.starability-slot > input:hover ~ label,
+.starability-slot > input:hover ~ input:checked ~ label {
+  color: #ff385c; /* Airbnb Pink/Red */
+}
+
+/* Micro-interaction: Tiny bounce on hover */
+.starability-slot > label:hover {
+  transform: scale(1.1);
+}
+
+/* --- Textarea Styling --- */
+textarea.form-control {
+  width: 100%;
+  height: 120px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #b0b0b0;
+  font-size: 16px;
+  font-family: inherit;
+  resize: vertical; /* Allow resizing only vertically */
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  background-color: #f9f9f9;
+}
+
+textarea.form-control:focus {
+  border-color: #222; /* Dark border on focus */
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* Subtle focus ring */
+}
+
+.comment-section {
+  margin-bottom: 24px;
+}
+
+/* --- Button Styling --- */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #e61e4d 0%, #d80565 100%); /* Airbnb Gradient */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(90deg, #d80565 0%, #e61e4d 100%);
+  box-shadow: 0 4px 12px rgba(216, 5, 101, 0.3);
+}
+
+.submit-btn:active {
+  transform: scale(0.98); /* Click press effect */
+}
+
+
+/* flash msg  */
+.flash-success {
+    background-color: #d1e7dd;      /* Light Green Background */
+    color: #0f5132;                 /* Dark Green Text */
+    border: 1px solid #badbcc;      /* Green Border */
+    padding: 1rem 1.5rem;           /* Spacing inside */
+    margin: 1rem 0;                 /* Spacing outside */
+    border-radius: 0.5rem;          /* Rounded corners */
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.flash-error {
+    background-color: #f8d7da;      /* Light Red Background */
+    color: #842029;                 /* Dark Red Text */
+    border: 1px solid #f5c2c7;      /* Red Border */
+    padding: 1rem 1.5rem;           /* Spacing inside */
+    margin: 1rem 0;                 /* Spacing outside */
+    border-radius: 0.5rem;          /* Rounded corners */
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+
+/* signup  */
+
+/* --- Custom Signup Page Design --- */
+
+/* Centers the form on the page */
+.signup-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Takes up most of the screen height */
+    background-color: #f8f9fa; /* Light grey background */
+}
+
+/* The White Card */
+.signup-container {
+    background: white;
+    width: 100%;
+    max-width: 450px; /* Limits width on big screens */
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Soft shadow */
+    border: 1px solid #eaeaea;
+}
+
+/* Header Text */
+.signup-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.signup-header p {
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 1.2rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+.custom-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Input Focus Effect (Glow) */
+.custom-input:focus {
+    border-color: #fe424d; /* Airbnb/Wanderlust Red */
+    box-shadow: 0 0 0 3px rgba(254, 66, 77, 0.1);
+    outline: none;
+}
+
+/* The Button */
+.btn-signup {
+    width: 100%;
+    padding: 12px;
+    background-color: #fe424d; /* Brand Color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btn-signup:hover {
+    background-color: #e02f3a; /* Darker red on hover */
+}

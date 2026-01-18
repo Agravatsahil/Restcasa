@@ -1,0 +1,30 @@
+<% layout('/layouts/boilerplate') %>
+
+
+<div class="signup-wrapper">
+    <div class="signup-container">
+        <div class="signup-header">
+            <h2>Welcome to RestCasa</h2>
+        </div>
+        
+        <form action="/signup" method="POST" novalidate>
+            
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" class="custom-input" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="custom-input" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="custom-input" required>
+            </div>
+
+            <button class="btn-signup">Sign Up</button>
+        </form>
+    </div>
+</div>
