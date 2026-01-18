@@ -93,10 +93,10 @@ async function main() {
 //Routes
 
 //home
-app.get("/", (req, res) => {
-  res.send("HOME");
-  console.dir(req.cookies);
-});
+// app.get("/", (req, res) => {
+//   res.send("HOME");
+//   console.dir(req.cookies);
+// });
 
 app.use(flash());
 
